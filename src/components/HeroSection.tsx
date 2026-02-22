@@ -13,12 +13,12 @@ const socials = [
   },
   {
     icon: <Linkedin className="w-5 h-5" />,
-    href: "https://www.linkedin.com/in/sachintha-prabashana-2287b432a/",
+    href: "https://www.linkedin.com/in/sachintha-prabashana-499209346/",
     label: "LinkedIn",
   },
   {
     icon: <Mail className="w-5 h-5" />,
-    href: "mailto:sachinthaprabashana123@gmail.com",
+    href: "mailto:sachinthaprabhashana2003@gmail.com",
     label: "Email",
   },
 ];

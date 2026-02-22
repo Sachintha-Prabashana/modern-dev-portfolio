@@ -1,5 +1,8 @@
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, MapPin, Phone, Github, Linkedin } from "lucide-react";
+import emailjs from "@emailjs/browser";
+import { toast } from "sonner";
 
 const contactInfo = [
   {
@@ -18,12 +21,49 @@ const contactInfo = [
 ];
 
 const socialLinks = [
-  { icon: Github, label: "GitHub", href: "https://github.com" },
-  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
-  { icon: Twitter, label: "Twitter", href: "https://twitter.com" },
+  {
+    icon: Github,
+    label: "GitHub",
+    href: "https://github.com/Sachintha-Prabashana",
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/sachintha-prabashana-499209346/",
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    href: "mailto:sachinthaprabhashana2003@gmail.com",
+  },
 ];
 
 const ContactSection = () => {
+  const form = useRef<HTMLFormElement>(null);
+  const [isSending, setIsSending] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.current) return;
+
+    setIsSending(true);
+    try {
+      await emailjs.sendForm(
+        "service_t3ogb1o",
+        "template_mmhi6q9",
+        form.current,
+        "X_rY50yw1sCaaEnLd",
+      );
+      toast.success("Message sent successfully!");
+      form.current.reset();
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsSending(false);
+    }
+  };
+
   return (
     <section id="contact" className="relative py-24 md:py-32">
       {/* Background Elements */}
@@ -89,7 +129,7 @@ const ContactSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  whileInView={{ opacity: 1, x: 0, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 + index * 0.1 }}
                   whileHover={{ y: -4, scale: 1.1 }}
@@ -109,7 +149,11 @@ const ContactSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <form className="glass-card rounded-2xl p-6 md:p-8 space-y-6">
+            <form
+              ref={form}
+              onSubmit={handleSubmit}
+              className="glass-card rounded-2xl p-6 md:p-8 space-y-6"
+            >
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium">
@@ -118,7 +162,9 @@ const ContactSection = () => {
                   <input
                     type="text"
                     id="name"
-                    placeholder="Sachintha Prabashana"
+                    name="user_name"
+                    required
+                    placeholder="Enter Your Name"
                     className="w-full px-4 py-3 rounded-xl bg-secondary border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-muted-foreground"
                   />
                 </div>
@@ -129,7 +175,9 @@ const ContactSection = () => {
                   <input
                     type="email"
                     id="email"
-                    placeholder="sachinthaprabhashana2003@gmail.com"
+                    name="user_email"
+                    required
+                    placeholder="Enter Your Email"
                     className="w-full px-4 py-3 rounded-xl bg-secondary border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-muted-foreground"
                   />
                 </div>
@@ -142,6 +190,8 @@ const ContactSection = () => {
                 <input
                   type="text"
                   id="subject"
+                  name="subject"
+                  required
                   placeholder="Project Inquiry"
                   className="w-full px-4 py-3 rounded-xl bg-secondary border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-muted-foreground"
                 />
@@ -153,19 +203,22 @@ const ContactSection = () => {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
+                  required
                   rows={5}
-                  placeholder="Tell me about your project..."
+                  placeholder="Tell me about what you want to discuss..."
                   className="w-full px-4 py-3 rounded-xl bg-secondary border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none placeholder:text-muted-foreground"
                 />
               </div>
 
               <motion.button
                 type="submit"
+                disabled={isSending}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-4 rounded-xl bg-primary text-primary-foreground font-semibold hover:shadow-glow transition-all duration-300"
+                className="w-full py-4 rounded-xl bg-primary text-primary-foreground font-semibold hover:shadow-glow transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isSending ? "Sending..." : "Send Message"}
               </motion.button>
             </form>
           </motion.div>
