@@ -154,7 +154,10 @@ const HeroSection = () => {
               </svg>
             </a>
             <a
-              href="#" /* Replace with actual CV link if available */
+              href="/cv/Sachintha Prabashana Resume V1.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Sachintha_Prabashana_Resume.pdf"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full glass-card glow-border font-semibold hover:bg-secondary/50 transition-all duration-300"
             >
               Download CV
