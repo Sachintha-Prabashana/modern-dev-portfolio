@@ -60,10 +60,10 @@ const Index = () => {
 
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
-      <div className="md:hidden">
+      <div className="lg:hidden">
         <Navbar />
       </div>
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <FloatingNav navItems={navItems} />
       </div>
       <HeroSection />

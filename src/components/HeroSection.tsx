@@ -1,9 +1,27 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download } from "lucide-react";
+import { Download, Github, Linkedin, Mail } from "lucide-react";
 import profileImage from "@/assets/images/profile.png";
 
 const roles = ["Full Stack Developer", "Mobile App Developer", "Web Developer"];
+
+const socials = [
+  {
+    icon: <Github className="w-5 h-5" />,
+    href: "https://github.com/Sachintha-Prabashana",
+    label: "GitHub",
+  },
+  {
+    icon: <Linkedin className="w-5 h-5" />,
+    href: "https://www.linkedin.com/in/sachintha-prabashana-2287b432a/",
+    label: "LinkedIn",
+  },
+  {
+    icon: <Mail className="w-5 h-5" />,
+    href: "mailto:sachinthaprabashana123@gmail.com",
+    label: "Email",
+  },
+];
 
 const HeroSection = () => {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -142,6 +160,32 @@ const HeroSection = () => {
               Download CV
               <Download className="w-5 h-5" />
             </a>
+          </motion.div>
+
+          {/* Social Links */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
+            className="flex items-center justify-center gap-4 pt-8"
+          >
+            {socials.map((social, index) => (
+              <motion.a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1 + index * 0.1 }}
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-12 h-12 flex items-center justify-center rounded-full glass-card border border-white/10 text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors duration-300 shadow-sm"
+                title={social.label}
+              >
+                {social.icon}
+              </motion.a>
+            ))}
           </motion.div>
         </motion.div>
 

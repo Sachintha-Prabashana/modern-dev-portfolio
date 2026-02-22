@@ -60,7 +60,7 @@ const CertificatesSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="flex flex-nowrap md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 overflow-x-auto md:overflow-visible pb-8 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0 scrollbar-hide mb-16">
           {certifications.map((cert, index) => (
             <motion.div
               key={cert.name}
@@ -68,7 +68,9 @@ const CertificatesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="group flex flex-col glass-card rounded-2xl overflow-hidden hover:shadow-glow transition-all duration-300 relative"
+              className={`min-w-[300px] md:min-w-full group flex flex-col glass-card rounded-2xl overflow-hidden hover:shadow-glow transition-all duration-300 relative ${
+                index >= 2 ? "md:hidden lg:flex" : "flex"
+              }`}
             >
               <div className="glow-border h-full flex flex-col">
                 {/* Image Container */}

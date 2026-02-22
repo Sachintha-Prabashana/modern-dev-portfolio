@@ -19,8 +19,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <p className="text-muted-foreground text-sm text-center">
-            © {currentYear} Sachintha Prabashana. Crafted with{" "}
-            <span className="text-destructive">♥</span> and lots of coffee.
+            © {currentYear} Sachintha Prabashana. All rights reserved.
           </p>
 
           {/* Back to Top */}

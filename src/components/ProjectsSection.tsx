@@ -68,8 +68,8 @@ const ProjectsSection = () => {
           </motion.div>
         </div>
 
-        {/* Projects Grid - 3 Column on Desktop */}
-        <div className="flex flex-nowrap md:grid md:grid-cols-3 gap-8 overflow-x-auto md:overflow-visible pb-8 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0 scrollbar-hide">
+        {/* Projects Grid - Responsive columns and row limiting */}
+        <div className="flex flex-nowrap md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 overflow-x-auto md:overflow-visible pb-8 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0 scrollbar-hide">
           {projects.slice(0, 6).map((project, index) => (
             <motion.article
               key={project.id}
@@ -77,7 +77,9 @@ const ProjectsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
-              className="min-w-[300px] md:min-w-full glass-card rounded-2xl overflow-hidden group border border-white/10 flex flex-col cursor-pointer"
+              className={`min-w-[300px] md:min-w-full glass-card rounded-2xl overflow-hidden group border border-white/10 flex flex-col cursor-pointer ${
+                index >= 4 ? "md:hidden lg:flex" : "flex"
+              }`}
               onClick={() => navigate(`/projects/${project.id}`)}
             >
               <div className="relative h-48 overflow-hidden">

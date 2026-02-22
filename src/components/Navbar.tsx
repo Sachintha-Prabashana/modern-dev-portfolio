@@ -5,6 +5,7 @@ const navLinks = [
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
+  { name: "Certifications", href: "#certificates" },
   { name: "Education", href: "#education" },
   { name: "Contact", href: "#contact" },
   // { name: 'Blog', href: '#blog' },
@@ -25,7 +26,7 @@ const Navbar = () => {
   // Close mobile menu when resizing to desktop
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 1024) {
         setIsOpen(false);
       }
     };
@@ -54,7 +55,7 @@ const Navbar = () => {
         </motion.a>
 
         {/* Desktop Nav Links - Center */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden lg:flex items-center gap-8">
           {navLinks.map((link, index) => (
             <motion.li
               key={link.name}
@@ -72,7 +73,7 @@ const Navbar = () => {
         {/* Desktop CTA - Right */}
         <motion.a
           href="#contact"
-          className="hidden md:inline-flex px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-medium text-sm hover:shadow-glow transition-all duration-300"
+          className="hidden lg:inline-flex px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-medium text-sm hover:shadow-glow transition-all duration-300"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -81,7 +82,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-foreground p-2 relative z-50"
+          className="lg:hidden text-foreground p-2 relative z-50"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -109,7 +110,7 @@ const Navbar = () => {
               animate={{ opacity: 1, height: "100vh" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="absolute top-0 left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border/50 md:hidden overflow-hidden"
+              className="absolute top-0 left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border/50 lg:hidden overflow-hidden"
               style={{ height: "100vh" }}
             >
               <div className="flex flex-col items-center justify-center h-full gap-8">
