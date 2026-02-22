@@ -2,32 +2,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { projects } from "@/data/projectsData";
-
-const techIcons: Record<string, string> = {
-  React:
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-  "React Native":
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-  "Node.js":
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  MongoDB:
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-  TypeScript:
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-  Firebase:
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
-  Tailwind:
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
-  PostgreSQL:
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-  Java: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
-  "Spring Boot":
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
-  Docker:
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-  Express:
-    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
-};
+import TechnologyIcon from "./TechnologyIcon";
 
 const ProjectsSection = () => {
   const navigate = useNavigate();
@@ -126,16 +101,7 @@ const ProjectsSection = () => {
 
                 <div className="flex items-center gap-3 mt-auto pt-4 border-t border-white/5">
                   {project.tags.map((tag) => (
-                    <div key={tag} className="group/icon relative">
-                      <img
-                        src={techIcons[tag]}
-                        alt={tag}
-                        className="w-6 h-6 object-contain opacity-60 hover:opacity-100 transition-opacity"
-                      />
-                      <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-[10px] font-bold bg-secondary text-white rounded opacity-0 group-hover/icon:opacity-100 transition-opacity whitespace-nowrap">
-                        {tag}
-                      </span>
-                    </div>
+                    <TechnologyIcon key={tag} tag={tag} />
                   ))}
                 </div>
               </div>

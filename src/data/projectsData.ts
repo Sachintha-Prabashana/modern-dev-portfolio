@@ -1,3 +1,10 @@
+import gearupImg from "@/assets/images/gearup.png";
+import skillbadgeImg from "@/assets/images/skillbadge.png";
+import autocertImg from "@/assets/images/autocert.png";
+import everaImg from "@/assets/images/evera.png";
+import zenithmindImg from "@/assets/images/zenithmind.png";
+import inspiraImg from "@/assets/images/inspira.png";
+
 export interface Project {
   id: string;
   title: string;
@@ -13,49 +20,73 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "gearup",
-    title: "GearUp Mobile App",
-    description: "B2C camera accessory rental marketplace developed with React Native and Firebase.",
-    fullDescription: "GearUp makes professional camera equipment accessible to everyone. Developed for the mobile marketplace, it allows photographers to rent high-end lenses, bodies, and accessories with real-time availability checking and secure payments.",
-    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=400&fit=crop",
-    tags: ["React Native", "Firebase", "TypeScript", "Tailwind"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/Sachintha-Prabashana/GearUp", //
-    features: ["Equipment Availability Calendar", "Geo-location based search", "Secure In-app Payments"]
-  },
+  id: "gearup",
+  title: "GearUp Mobile App",
+  description: "A scalable B2C rental marketplace for professional photography and videography equipment.", //
+  fullDescription: "Developed a scalable B2C mobile application that streamlines the rental lifecycle for professional photography and videography equipment. The platform serves as a digital storefront where creators can discover, book, and securely pay for high-end gear from a centralized inventory.", //
+  image: gearupImg,
+  tags: ["React Native", "Firebase", "Stripe", "Cloudinary", "Google Maps"], //
+  liveUrl: "https://drive.google.com/file/d/1Q2oB3SpcJqj4eSfaKdGmGIhBEaLdBdW3/view?usp=drive_link",
+  githubUrl: "https://github.com/Sachintha-Prabashana/gearup-mobile.git", //
+  features: [
+    "Identity Verification System using Cloudinary for secure storage", //
+    "Secure Payment Integration powered by Stripe SDK", //
+    "Interactive Store Locator with Google Maps & Expo Location", //
+    "Automated Rental Management with QR code confirmations", //
+    "Robust Authentication using Firebase with custom data validators" //
+  ]
+},
   {
-    id: "skillbadge",
-    title: "SkillBadge Platform",
-    description: "A smart-blogging and coding challenge platform built using the MERN stack.",
-    fullDescription: "SkillBadge is a gamified learning platform where developers can write blogs, take coding challenges, and earn badges. It utilizes a MERN stack architecture to bridge the gap between blogging and competitive programming.",
-    image: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=600&h=400&fit=crop",
-    tags: ["MongoDB", "Express", "React", "Node.js"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/Sachintha-Prabashana/SkillBadge", //
-    features: ["In-browser Code Editor", "Rich Text Blogging", "Real-time Leaderboards"]
-  },
+  id: "skillbadge",
+  title: "SkillBadge Platform",
+  description: "An AI-powered technical skill validation and gamified learning platform.", //
+  fullDescription: "Developed a scalable, full-stack platform designed to automate technical skill validation and enhance developer learning through AI-driven assessments and competitive gamification.", //
+  image: skillbadgeImg,
+  tags: ["MERN Stack", "Gemini AI", "Socket.io", "TypeScript", "Monaco Editor"], //
+  liveUrl: "https://skillbadge-frontend.vercel.app/", //
+  githubUrl: "https://github.com/Sachintha-Prabashana/skillbadge-frontend.git", //
+  features: [
+    "Advanced Coding Engine with Monaco Editor & Piston API integration", //
+    "AI Mock Interviews powered by Gemini-Flash with voice feedback", //
+    "AI Content Generation via OpenRouter (Llama 3.3) with Admin Approval", //
+    "Real-time community discussions using Socket.io", //
+    "Robust RBAC with Multi-provider OAuth (Google/GitHub) & JWT" //
+  ]
+},
+ {
+  id: "autocert",
+  title: "AutoCert - Vehicle Inspection Marketplace",
+  description: "Enterprise-level marketplace bridging the trust gap in the used car industry through automated certification.", //
+  fullDescription: "Developed a secure and scalable enterprise-level marketplace designed to bridge the trust gap in the used car industry. The system integrates vehicle listings with a professional inspection ecosystem, ensuring transparency through automated certification and smart resource allocation.", //
+  image: autocertImg,
+  tags: ["Java 21", "Spring Boot 3.5", "Spring Security", "MySQL", "WebSockets"], //
+  liveUrl: "#",
+  githubUrl: "https://github.com/Sachintha-Prabashana/Autocert-platform.git", //
+  features: [
+    "Intelligent Auto-Assignment Algorithm for inspector workload management", //
+    "Real-time live chat and image sharing via WebSockets (STOMP)", //
+    "Automated PDF report generation and secure storage on Cloudinary", //
+    "Sophisticated RBAC security with Spring Security and JWT", //
+    "Automated professional communication system using Spring Mail" //
+  ]
+},
   {
-    id: "autocert",
-    title: "AutoCert - Vehicle Inspection",
-    description: "Enterprise solution built with Spring Boot to automate vehicle inspection and registration.",
-    fullDescription: "A full-stack web application designed to automate vehicle inspection workflows and certification logic. It features RBAC (Role-Based Access Control) and automated report generation for high-throughput automotive environments.",
-    image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=600&h=400&fit=crop",
-    tags: ["Java", "Spring Boot", "PostgreSQL", "Docker"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/Sachintha-Prabashana/AutoCert", //
-    features: ["Automated Certificate Generation", "RBAC Security", "Inspection Tracking"]
-  },
-  {
-    id: "evera",
-    title: "Evera - E-Commerce",
-    description: "A modern E-commerce platform for seamless online shopping experiences.",
-    fullDescription: "Evera is a sleek, responsive e-commerce application designed to provide a smooth user journey from product discovery to checkout, focusing on performance and modern UI/UX principles.",
-    image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=600&h=400&fit=crop",
-    tags: ["React", "Node.js", "MongoDB", "Tailwind"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/Sachintha-Prabashana/Evera",
-    features: ["Product Filtering", "Shopping Cart", "Order Management"]
-  },
+  id: "evera",
+  title: "Evera - Electric Mobility Guide",
+  description: "A centralized educational platform guiding users through the transition to sustainable electric mobility.", //
+  fullDescription: "Evera is a comprehensive digital hub designed to simplify complex automotive technologies and provide actionable insights for both potential buyers and current EV owners, focusing on sustainable transportation.", //
+  image: everaImg,
+  tags: ["HTML5", "CSS3", "JavaScript", "Firebase", "Sustainable Tech"], //
+  liveUrl: "#", 
+  githubUrl: "https://github.com/Sachintha-Prabashana/My-Review-Site.git", //
+  features: [
+    "Comprehensive modules on BEV, PHEV, HEV, and FCEV technologies", //
+    "Integrated 'EV Buying' and 'Care & Maintenance' consumer guides", //
+    "Engineered with semantic HTML5 and modular CSS3 for high performance", //
+    "Mobile-first responsive UI strategy for seamless multi-device experience", //
+    "Automated deployment and hosting managed via Firebase and GitHub" //
+  ]
+},
   {
     id: "hotel-web",
     title: "Bootstrap Hotel Web",
@@ -68,25 +99,37 @@ export const projects: Project[] = [
     features: ["Responsive Design", "Service Showcases", "Interactive Gallery"]
   },
   {
-    id: "zenithmind",
-    title: "ZenithMind",
-    description: "Mental health therapy management system developed using JavaFX.",
-    fullDescription: "A desktop application called ZenithMind designed for managing mental health therapy centers. It streamlines patient records, appointment scheduling, and therapist assignments.",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=400&fit=crop",
-    tags: ["Java", "JavaFX", "MySQL"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/Sachintha-Prabashana/ZenithMind", //
-    features: ["Patient Management", "Therapy Scheduling", "Secure Data Storage"]
-  },
+  id: "zenithmind",
+  title: "ZenithMind - Clinic Management",
+  description: "A high-performance desktop application to digitize and automate operations for mental health clinics.", //
+  fullDescription: "Developed a high-performance desktop application focusing on solving administrative bottlenecks by centralizing patient data, therapy scheduling, and financial tracking into a secure, unified platform built with JavaFX and Hibernate.", //
+  image: zenithmindImg,
+  tags: ["Java 21", "JavaFX", "Hibernate", "MySQL", "JasperReports"], //
+  liveUrl: "#",
+  githubUrl: "https://github.com/Sachintha-Prabashana/Mental-Health-Therapy-System.git", //
+  features: [
+    "Enterprise-grade Layered Architecture (Controller-Service-DAO)", //
+    "RBAC security with BCrypt password hashing for sensitive data", //
+    "Advanced Data Modeling with Hibernate managing complex relationships", //
+    "Automated JasperReports for dynamic PDF invoices and clinical history", //
+    "Modern Material Design UI built with JavaFX and JFoenix components" //
+  ]
+},
   {
-    id: "inspira",
-    title: "Inspira",
-    description: "Event planning operations management system built with JavaFX.",
-    fullDescription: "A JavaFX-based desktop application for managing event planning operations. It helps organizers track logistics, client requirements, and event schedules efficiently.",
-    image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=600&h=400&fit=crop",
-    tags: ["Java", "JavaFX", "MySQL"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/Sachintha-Prabashana/Inspira", //
-    features: ["Event Logistics Tracking", "Client Portal", "Scheduling Dashboard"]
-  }
+  id: "inspira",
+  title: "Inspira - Event Planning System",
+  description: "A comprehensive desktop solution to automate and manage end-to-end event planning operations.",
+  fullDescription: "Inspira centralizes administrative tasks for event organizers, managing everything from customer bookings to supplier coordination and employee management within a seamless, unified workflow.",
+  image: inspiraImg,
+  tags: ["Java 21", "JavaFX", "MySQL", "JasperReports", "Javax Mail"],
+  liveUrl: "#",
+  githubUrl: "https://github.com/Sachintha-Prabashana/Inspira-Event-Planning-System-Desktop-App-Layered-Architecture-.git",
+  features: [
+    "Advanced Authentication with OTP-based password recovery via Javax Mail",
+    "Clean DAO/BO/DTO layered architecture for modularity and scalability",
+    "Full Event Lifecycle Management (Customers, Bookings, Suppliers, Services)",
+    "Dynamic JasperReports for event coordination and business analysis",
+    "Optimized MySQL schema with cascading operations for data consistency"
+  ]
+},
 ];
