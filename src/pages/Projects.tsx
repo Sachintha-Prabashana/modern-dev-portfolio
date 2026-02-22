@@ -14,6 +14,7 @@ import {
   MessageSquare,
   Briefcase,
 } from "lucide-react";
+import TechnologyIcon from "@/components/TechnologyIcon";
 
 const Projects = () => {
   const navigate = useNavigate();
@@ -138,12 +139,7 @@ const Projects = () => {
 
                 <div className="flex flex-wrap gap-2 mt-auto">
                   {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 text-xs font-mono font-bold bg-secondary/50 text-primary border border-primary/20 rounded-full"
-                    >
-                      {tag}
-                    </span>
+                    <TechnologyIcon key={tag} tag={tag} />
                   ))}
                 </div>
               </div>

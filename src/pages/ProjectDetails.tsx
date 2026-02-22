@@ -14,6 +14,7 @@ import {
   MessageSquare,
   Briefcase,
 } from "lucide-react";
+import TechnologyIcon from "@/components/TechnologyIcon";
 import NotFound from "./NotFound";
 
 const ProjectDetails = () => {
@@ -113,12 +114,7 @@ const ProjectDetails = () => {
 
             <div className="flex flex-wrap gap-2">
               {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-4 py-1.5 text-sm font-mono font-bold bg-secondary/50 text-primary border border-primary/20 rounded-full"
-                >
-                  {tag}
-                </span>
+                <TechnologyIcon key={tag} tag={tag} />
               ))}
             </div>
           </div>
@@ -131,56 +127,30 @@ const ProjectDetails = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="md:col-span-2 space-y-8">
+          <div className="space-y-8">
+            <section className="space-y-4 text-left">
+              <h2 className="text-2xl font-bold">About the Project</h2>
+              <p className="text-muted-foreground leading-relaxed text-lg">
+                {project.fullDescription || project.description}
+              </p>
+            </section>
+
+            {project.features && (
               <section className="space-y-4 text-left">
-                <h2 className="text-2xl font-bold">About the Project</h2>
-                <p className="text-muted-foreground leading-relaxed text-lg">
-                  {project.fullDescription || project.description}
-                </p>
+                <h2 className="text-2xl font-bold">Key Features</h2>
+                <ul className="space-y-3">
+                  {project.features.map((feature) => (
+                    <li
+                      key={feature}
+                      className="flex items-start gap-3 text-muted-foreground text-left"
+                    >
+                      <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </section>
-
-              {project.features && (
-                <section className="space-y-4 text-left">
-                  <h2 className="text-2xl font-bold">Key Features</h2>
-                  <ul className="space-y-3">
-                    {project.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-start gap-3 text-muted-foreground text-left"
-                      >
-                        <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              )}
-            </div>
-
-            <div className="space-y-8">
-              <div className="glass-card rounded-3xl p-8 border border-white/10 space-y-6">
-                <h3 className="text-xl font-bold">Project Info</h3>
-                <div className="space-y-4 text-left">
-                  <div className="flex justify-between items-center pb-4 border-b border-white/5">
-                    <span className="text-muted-foreground">Category</span>
-                    <span className="font-medium text-foreground">
-                      Development
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center pb-4 border-b border-white/5">
-                    <span className="text-muted-foreground">Status</span>
-                    <span className="font-medium text-primary">Completed</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-muted-foreground">Client</span>
-                    <span className="font-medium text-foreground">
-                      Portfolio
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            )}
           </div>
         </motion.div>
       </div>

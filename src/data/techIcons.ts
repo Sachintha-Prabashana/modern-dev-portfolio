@@ -1,0 +1,47 @@
+import cloudinaryLogo from "@/assets/images/cloudinary.png";
+
+export const techIcons: Record<string, string> = {
+  // Frontend
+  React: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  "React Native": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  HTML5: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+  HTML: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+  CSS3: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+  CSS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+  JavaScript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+  TypeScript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  Tailwind: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+  Bootstrap: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
+  "MERN Stack": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+
+  // Backend & Databases
+  "Node.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  Express: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+  MongoDB: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  MySQL: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+  PostgreSQL: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  Firebase: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+  Java: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+  "Java 21": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+  "Spring Boot": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+  "Spring Boot 3.5": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+  "Spring Security": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+  Hibernate: "https://raw.githubusercontent.com/devicons/devicon/master/icons/hibernate/hibernate-original.svg",
+
+  // Tools & Services
+  Docker: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+  // Stripe SDK: "https://raw.githubusercontent.com/devicons/devicon/master/icons/stripe/stripe-original.svg",
+  // Cloudinary: "https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudinary/cloudinary-original.svg",
+  "Google Maps": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg",
+  "Socket.io": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg",
+  WebSockets: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+  "Gemini AI": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg",
+  "Monaco Editor": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
+  "JasperReports": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+  "Javax Mail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+  JavaFX: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+  "Sustainable Tech": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg",
+  Stripe: "https://www.vectorlogo.zone/logos/stripe/stripe-icon.svg",
+ Cloudinary: cloudinaryLogo,
+  // "Google Maps": "https://www.vectorlogo.zone/logos/google/google-icon.svg"
+};
