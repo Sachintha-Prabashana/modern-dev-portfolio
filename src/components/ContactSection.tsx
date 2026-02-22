@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, MapPin, Phone, Github, Linkedin } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { toast } from "sonner";
 
@@ -22,9 +22,21 @@ const contactInfo = [
 ];
 
 const socialLinks = [
-  { icon: Github, label: "GitHub", href: "https://github.com" },
-  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
-  { icon: Twitter, label: "Twitter", href: "https://twitter.com" },
+  {
+    icon: Github,
+    label: "GitHub",
+    href: "https://github.com/Sachintha-Prabashana",
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/sachintha-prabashana-499209346/",
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    href: "mailto:sachinthaprabhashana2003@gmail.com",
+  },
 ];
 
 const ContactSection = () => {
@@ -32,26 +44,30 @@ const ContactSection = () => {
   const [isSending, setIsSending] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.current) return;
+  e.preventDefault();
+  // Ensure the form is not null
+  const currentForm = form.current;
+  if (!currentForm) return;
 
-    setIsSending(true);
-    try {
-      await emailjs.sendForm(
-        "service_t3ogb1o",
-        "template_mmhi6q9",
-        form.current,
-        "X_rY50yw1sCaaEnLd",
-      );
-      toast.success("Message sent successfully!");
-      form.current.reset();
-    } catch (error) {
-      console.error("EmailJS Error:", error);
-      toast.error("Failed to send message. Please try again.");
-    } finally {
-      setIsSending(false);
-    }
-  };
+  setIsSending(true);
+  try {
+    await emailjs.sendForm(
+      "service_t3ogb1o",
+      "template_mmhi6q9",
+      currentForm, // Use the local variable
+      "X_rY50yw1sCaaEnLd"
+    );
+    toast.success("Message sent successfully!");
+    currentForm.reset();
+  } catch (error) {
+    // Better error logging for debugging merges
+    const errorMessage = error instanceof Error ? error.message : "Failed to send";
+    console.error("EmailJS Error:", errorMessage);
+    toast.error("Failed to send message. Please try again.");
+  } finally {
+    setIsSending(false);
+  }
+};
 
   return (
     <section id="contact" className="relative py-24 md:py-32">
@@ -118,7 +134,7 @@ const ContactSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  whileInView={{ opacity: 1, x: 0, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 + index * 0.1 }}
                   whileHover={{ y: -4, scale: 1.1 }}
@@ -153,7 +169,7 @@ const ContactSection = () => {
                     id="name"
                     name="user_name"
                     required
-                    placeholder="Sachintha Prabashana"
+                    placeholder="Enter Your Name"
                     className="w-full px-4 py-3 rounded-xl bg-secondary border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-muted-foreground"
                   />
                 </div>
@@ -166,7 +182,7 @@ const ContactSection = () => {
                     id="email"
                     name="user_email"
                     required
-                    placeholder="sachinthaprabhashana2003@gmail.com"
+                    placeholder="Enter Your Email"
                     className="w-full px-4 py-3 rounded-xl bg-secondary border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-muted-foreground"
                   />
                 </div>
@@ -193,9 +209,9 @@ const ContactSection = () => {
                 <textarea
                   id="message"
                   name="message"
-                  rows={5}
                   required
-                  placeholder="Tell me about your project..."
+                  rows={5}
+                  placeholder="Tell me about what you want to discuss..."
                   className="w-full px-4 py-3 rounded-xl bg-secondary border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none placeholder:text-muted-foreground"
                 />
               </div>
