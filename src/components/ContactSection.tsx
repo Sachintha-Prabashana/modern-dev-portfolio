@@ -43,26 +43,30 @@ const ContactSection = () => {
   const [isSending, setIsSending] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.current) return;
+  e.preventDefault();
+  // Ensure the form is not null
+  const currentForm = form.current;
+  if (!currentForm) return;
 
-    setIsSending(true);
-    try {
-      await emailjs.sendForm(
-        "service_t3ogb1o",
-        "template_mmhi6q9",
-        form.current,
-        "X_rY50yw1sCaaEnLd",
-      );
-      toast.success("Message sent successfully!");
-      form.current.reset();
-    } catch (error) {
-      console.error("EmailJS Error:", error);
-      toast.error("Failed to send message. Please try again.");
-    } finally {
-      setIsSending(false);
-    }
-  };
+  setIsSending(true);
+  try {
+    await emailjs.sendForm(
+      "service_t3ogb1o",
+      "template_mmhi6q9",
+      currentForm, // Use the local variable
+      "X_rY50yw1sCaaEnLd"
+    );
+    toast.success("Message sent successfully!");
+    currentForm.reset();
+  } catch (error) {
+    // Better error logging for debugging merges
+    const errorMessage = error instanceof Error ? error.message : "Failed to send";
+    console.error("EmailJS Error:", errorMessage);
+    toast.error("Failed to send message. Please try again.");
+  } finally {
+    setIsSending(false);
+  }
+};
 
   return (
     <section id="contact" className="relative py-24 md:py-32">
