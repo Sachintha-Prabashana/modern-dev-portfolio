@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const skillCategories = [
   {
@@ -47,7 +48,7 @@ const skillCategories = [
     ],
   },
   {
-    title: "Backend & Database",
+    title: "Backend",
     skills: [
       {
         name: "Java",
@@ -61,6 +62,11 @@ const skillCategories = [
         name: "Python",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
       },
+    ],
+  },
+  {
+    title: "Databases",
+    skills: [
       {
         name: "MySQL",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
@@ -72,7 +78,7 @@ const skillCategories = [
     ],
   },
   {
-    title: "Devops and tools",
+    title: "DevOps & Tools",
     skills: [
       {
         name: "Docker",
@@ -94,7 +100,44 @@ const skillCategories = [
   },
 ];
 
+const tabs = [
+  "All",
+  "Full Stack",
+  "Frontend",
+  "Backend",
+  "Databases",
+  "DevOps & Tools",
+];
+
 const SkillsSection = () => {
+  const [activeTab, setActiveTab] = useState("All");
+
+  const getFilteredCategories = () => {
+    switch (activeTab) {
+      case "All":
+        return skillCategories;
+      case "Full Stack":
+        return skillCategories.filter(
+          (c) =>
+            c.title === "Frontend" ||
+            c.title === "Backend" ||
+            c.title === "Databases",
+        );
+      case "Frontend":
+        return skillCategories.filter((c) => c.title === "Frontend");
+      case "Backend":
+        return skillCategories.filter((c) => c.title === "Backend");
+      case "Databases":
+        return skillCategories.filter((c) => c.title === "Databases");
+      case "DevOps & Tools":
+        return skillCategories.filter((c) => c.title === "DevOps & Tools");
+      default:
+        return skillCategories;
+    }
+  };
+
+  const filteredCategories = getFilteredCategories();
+
   return (
     <section id="skills" className="relative py-24 md:py-32">
       {/* Background Glow */}
@@ -107,7 +150,7 @@ const SkillsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center space-y-4 mb-20"
+          className="text-center space-y-4 mb-12"
         >
           <p className="text-primary font-mono text-sm tracking-wider uppercase">
             Technical Expertise
@@ -120,49 +163,56 @@ const SkillsSection = () => {
           </p>
         </motion.div>
 
-        {/* Categories */}
-        <div className="space-y-20">
-          {skillCategories.map((category, categoryIndex) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: categoryIndex * 0.1, duration: 0.6 }}
-              className="space-y-8"
+        {/* Tabs */}
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-16">
+          {tabs.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+                activeTab === tab
+                  ? "bg-primary text-primary-foreground shadow-[0_0_20px_hsl(var(--primary)/0.3)]"
+                  : "bg-secondary/50 text-muted-foreground hover:bg-secondary hover:text-foreground"
+              }`}
             >
-              <h3 className="text-2xl font-semibold text-foreground/90 flex items-center gap-3">
-                <span className="w-12 h-[1px] bg-primary/50" />
-                {category.title}
-              </h3>
-
-              <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 md:gap-8">
-                {category.skills.map((skill, index) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.05, duration: 0.4 }}
-                    whileHover={{ y: -8, scale: 1.05 }}
-                    className="group flex flex-col items-center gap-4 p-6 glass-card rounded-2xl glow-border cursor-pointer"
-                  >
-                    <div className="w-12 h-12 md:w-16 md:h-16 relative">
-                      <img
-                        src={skill.icon}
-                        alt={skill.name}
-                        className="w-full h-full object-contain filter group-hover:drop-shadow-[0_0_20px_hsl(var(--primary)/0.5)] transition-all duration-300"
-                      />
-                    </div>
-                    <p className="text-sm font-medium text-center text-muted-foreground group-hover:text-foreground transition-colors">
-                      {skill.name}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+              {tab}
+            </button>
           ))}
         </div>
+
+        {/* Skills Grid */}
+        <motion.div
+          layout
+          className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 md:gap-8"
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredCategories
+              .flatMap((c) => c.skills)
+              .map((skill, index) => (
+                <motion.div
+                  layout
+                  key={skill.name}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.3 }}
+                  whileHover={{ y: -8, scale: 1.05 }}
+                  className="group flex flex-col items-center gap-4 p-6 glass-card rounded-2xl glow-border cursor-pointer"
+                >
+                  <div className="w-12 h-12 md:w-16 md:h-16 relative">
+                    <img
+                      src={skill.icon}
+                      alt={skill.name}
+                      className="w-full h-full object-contain filter group-hover:drop-shadow-[0_0_20px_hsl(var(--primary)/0.5)] transition-all duration-300"
+                    />
+                  </div>
+                  <p className="text-sm font-medium text-center text-muted-foreground group-hover:text-foreground transition-colors">
+                    {skill.name}
+                  </p>
+                </motion.div>
+              ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   );

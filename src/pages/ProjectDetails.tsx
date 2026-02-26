@@ -1,5 +1,6 @@
 "use strict";
 import { useParams, Link } from "react-router-dom";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, Github, CheckCircle2 } from "lucide-react";
 import { projects } from "@/data/projectsData";
@@ -19,6 +20,11 @@ import NotFound from "./NotFound";
 
 const ProjectDetails = () => {
   const { id } = useParams();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const project = projects.find((p) => p.id === id);
 
   if (!project) {
