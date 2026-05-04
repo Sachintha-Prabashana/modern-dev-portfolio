@@ -1,6 +1,8 @@
 import gearupImg from "@/assets/images/gearup.png";
 import skillbadgeImg from "@/assets/images/skillbadge.png";
 import autocertImg from "@/assets/images/autocert.png";
+import ecosyncImg from "@/assets/images/ecosync.png";
+import identysafeImg from "@/assets/images/identysafe.png";
 import everaImg from "@/assets/images/evera.png";
 import zenithmindImg from "@/assets/images/zenithmind.png";
 import inspiraImg from "@/assets/images/inspira.png";
@@ -19,6 +21,40 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+  id: "ecosync",
+  title: "EcoSync - Smart Greenhouse Automation",
+  description: "A cloud-native, polyglot microservices platform for real-time smart greenhouse automation with IoT integration.",
+  fullDescription: "EcoSync-AGMS is a production-grade, event-driven Smart Greenhouse Automation System built with a polyglot microservices architecture. The system continuously monitors environmental conditions through IoT sensors, evaluates them against zone-specific thresholds, and automatically triggers climate control decisions — all without manual intervention.",
+  image: ecosyncImg,
+  tags: ["Spring Boot", "Spring Cloud", "Node.js", "Python", "Docker", "MongoDB"],
+  liveUrl: "#",
+  githubUrl: "https://github.com/Sachintha-Prabashana/EcoSync-AGMS.git",
+  features: [
+    "Real-Time IoT Pipeline with sensor telemetry polled every 10 seconds",
+    "Intelligent Python-based Automation Engine with configurable zone thresholds",
+    "Polyglot Architecture — Java, Node.js (TypeScript), and Python services",
+    "Spring Cloud Infrastructure with Config Server, Eureka Discovery & API Gateway",
+    "Containerized deployment with Docker Compose and multi-database strategy (PostgreSQL, MongoDB, MySQL)"
+  ]
+},
+{
+  id: "identysafe",
+  title: "IdentySafe - Digital Document Vault",
+  description: "A secure, full-stack digital document vault with enterprise-grade OAuth2 authentication and controlled document sharing.",
+  fullDescription: "IdentySafe is a production-ready, enterprise-grade document management platform that allows users to securely upload, store, and organize sensitive documents in a personal vault. It leverages Asgardeo (WSO2) for OAuth2/OpenID Connect authentication and Cloudinary for secure, scalable cloud storage. Users can generate temporary, revokable share links to grant controlled public access to specific documents.",
+  image: identysafeImg,
+  tags: ["Spring Boot 3", "React", "TypeScript", "Docker", "OAuth2", "Cloudinary"],
+  liveUrl: "#",
+  githubUrl: "https://github.com/Sachintha-Prabashana/IdentySafe.git",
+  features: [
+    "Enterprise-grade OAuth2/OIDC authentication via Asgardeo (WSO2) with JWT validation",
+    "Secure cloud document storage and CDN delivery powered by Cloudinary",
+    "Controlled document sharing with UUID-based, time-limited, revokable share links",
+    "Full-stack monorepo with decoupled React 19 SPA and Spring Boot 3 REST API",
+    "Containerized deployment with Docker Compose (MySQL, Spring Boot, Nginx)"
+  ]
+},
   {
   id: "gearup",
   title: "GearUp Mobile App",
@@ -70,6 +106,7 @@ export const projects: Project[] = [
     "Automated professional communication system using Spring Mail" //
   ]
 },
+  
   {
   id: "evera",
   title: "Evera - Electric Mobility Guide",
