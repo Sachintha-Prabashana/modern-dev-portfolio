@@ -1,3 +1,5 @@
+import fitbuddyImg from "@/assets/images/fitbuddy.png";
+import loanriskImg from "@/assets/images/loanrisk.png";
 import gearupImg from "@/assets/images/gearup.png";
 import skillbadgeImg from "@/assets/images/skillbadge.png";
 import autocertImg from "@/assets/images/autocert.png";
@@ -16,11 +18,53 @@ export interface Project {
   tags: string[];
   liveUrl?: string;
   githubUrl?: string;
+  secondaryGithubUrl?: string;
+  githubLabel?: string;
+  secondaryGithubLabel?: string;
   features?: string[];
   challenges?: string[];
 }
 
 export const projects: Project[] = [
+  {
+    id: "fitbuddy",
+    title: "FitBuddy - Cloud-Native Fitness Microservices Platform",
+    description: "A distributed microservices fitness ecosystem built with Spring Cloud, Java 25, GCP Cloud Storage, OpenPDF, and polyglot databases.",
+    fullDescription: "FitBuddy is a cloud-native, distributed microservices platform engineered for scalable fitness and workout lifecycle management. Powered by Spring Cloud and Java 25, it incorporates Netflix Eureka for dynamic service discovery, Spring Cloud Config Server for centralized property management, and Spring Cloud Gateway for edge proxy routing. The platform features polyglot persistence across PostgreSQL and MongoDB, in-memory PDF telemetry compilation with OpenPDF, and direct Google Cloud Storage bucket integration.",
+    image: fitbuddyImg,
+    tags: ["Spring Cloud", "Java 25", "Microservices", "Google Cloud", "PostgreSQL", "MongoDB", "React", "Docker"],
+    liveUrl: "#",
+    githubUrl: "https://github.com/Sachintha-Prabashana/Fitbuddy-Platform.git",
+    secondaryGithubUrl: "https://github.com/Sachintha-Prabashana/Fitbuddy-Services.git",
+    githubLabel: "Platform Repo",
+    secondaryGithubLabel: "Services Repo",
+    features: [
+      "Enterprise Spring Cloud Ecosystem with Gateway (8000), Config Server (8888), and Eureka Discovery (9000)",
+      "Polyglot Microservices Persistence leveraging PostgreSQL for member profiles and MongoDB for routines",
+      "In-memory dynamic PDF Report Generation using OpenPDF streamed to Google Cloud Storage (GCS)",
+      "Inter-service load-balanced HTTP communication via Spring RestClient",
+      "Full Docker Compose monorepo orchestration for platform and domain services",
+      "Modern React + TypeScript web application with Zod validation and interactive workout tracking"
+    ]
+  },
+  {
+    id: "loan-risk-ai",
+    title: "CreditRisk AI - Loan Risk Prediction & Underwriting Engine",
+    description: "A polyglot ML-driven credit underwriting system with real-time risk assessment, FastAPI inference, and Spring Boot fallback resilience.",
+    fullDescription: "CreditRisk AI is an end-to-end automated loan underwriting and credit risk assessment platform. It couples a high-throughput Python FastAPI machine learning inference service with a robust Spring Boot orchestration backend and a reactive TypeScript interface. The system computes custom domain features in real-time, estimates default probability, explains key risk factors, and includes an automated rule-based fallback mechanism ensuring zero downtime.",
+    image: loanriskImg,
+    tags: ["FastAPI", "Python", "Scikit-Learn", "Spring Boot", "Java 21", "React", "MySQL", "Docker"],
+    liveUrl: "#",
+    githubUrl: "https://github.com/Sachintha-Prabashana/Loan-Risk-Prediction-System.git",
+    features: [
+      "High-Performance ML Inference Pipeline with 92.4% accuracy and 18ms latency",
+      "Real-time Feature Engineering (DTI ratios, monthly interest cost, dynamic credit tiers)",
+      "Resilient Backend Orchestration with Spring Boot 4 and reactive Spring WebFlux WebClient",
+      "Intelligent Rule-Based Policy Fallback when ML inference server is offline",
+      "Comprehensive Assessment Audit History persisted in MySQL with UUID keys",
+      "Interactive Underwriting Dashboard with risk probability meters and feature diagnostics"
+    ]
+  },
   {
   id: "ecosync",
   title: "EcoSync - Smart Greenhouse Automation",

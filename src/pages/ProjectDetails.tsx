@@ -94,7 +94,7 @@ const ProjectDetails = () => {
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
                 {project.title}
               </h1>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-3">
                 {project.liveUrl && project.liveUrl !== "#" && (
                   <a
                     href={project.liveUrl}
@@ -112,7 +112,17 @@ const ProjectDetails = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-card glow-border font-semibold hover:bg-secondary/50 transition-all"
                   >
-                    <Github className="w-4 h-4" /> View Source
+                    <Github className="w-4 h-4" /> {project.githubLabel || "View Source"}
+                  </a>
+                )}
+                {project.secondaryGithubUrl && project.secondaryGithubUrl !== "#" && (
+                  <a
+                    href={project.secondaryGithubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-card glow-border font-semibold hover:bg-secondary/50 transition-all"
+                  >
+                    <Github className="w-4 h-4" /> {project.secondaryGithubLabel || "Microservices Repo"}
                   </a>
                 )}
               </div>

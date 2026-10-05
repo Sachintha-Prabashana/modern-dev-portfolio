@@ -23,13 +23,21 @@ export const techIcons: Record<string, string> = {
   Firebase: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
   Java: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
   "Java 21": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+  "Java 25": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+  Python: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  FastAPI: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
   "Spring Boot": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
   "Spring Boot 3.5": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+  "Spring Cloud": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
   "Spring Security": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
   Hibernate: "https://raw.githubusercontent.com/devicons/devicon/master/icons/hibernate/hibernate-original.svg",
 
-  // Tools & Services
+  // Tools & Services & Cloud
   Docker: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+  Microservices: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+  "Google Cloud": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
+  GCP: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
+  "Scikit-Learn": "https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg",
   // Stripe SDK: "https://raw.githubusercontent.com/devicons/devicon/master/icons/stripe/stripe-original.svg",
   // Cloudinary: "https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudinary/cloudinary-original.svg",
   "Google Maps": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg",
@@ -42,6 +50,6 @@ export const techIcons: Record<string, string> = {
   JavaFX: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
   "Sustainable Tech": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg",
   Stripe: "https://www.vectorlogo.zone/logos/stripe/stripe-icon.svg",
- Cloudinary: cloudinaryLogo,
+  Cloudinary: cloudinaryLogo,
   // "Google Maps": "https://www.vectorlogo.zone/logos/google/google-icon.svg"
 };

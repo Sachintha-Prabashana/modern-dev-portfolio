@@ -154,7 +154,7 @@ const HeroSection = () => {
               </svg>
             </a>
             <a
-              href="/cv/Sachintha Prabashana GDSE72 IJSE Resume.pdf"
+              href="/cv/Sachintha-Prabashana-CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
               download="Sachintha_Prabashana_Resume.pdf"
